@@ -3,23 +3,23 @@ def max_profit(nums)
 #initializing
 	buying_prices = []
 	selling_prices = []
-
+	length = nums.length
 
 
 
 #buying prices
-	
-	if nums[0] < nums[1]
-		buying_prices.push(nums[0])
-	end
-
-	for i in 1..nums.length-1
-		if nums [i] < nums[i-1]
-			buying_prices.push(nums[i])
+	for i in 0..(length-2)
+		if i == 0
+			if nums[i] < nums[i+1]
+				buying_prices.push(nums[i])
+			end
+		else
+			if (nums[i] < nums[i-1]) && (nums[i] <= nums[i+1])
+				buying_prices.push(nums[i])
+			end
 		end
-		
+	
 	end
-
 	puts buying_prices
 
 
@@ -47,5 +47,5 @@ def max_profit(nums)
 
 end
 
-puts max_profit([7,6,2,9,1,6,2])
+puts max_profit([7,5,2,9,1,6,2])
 #puts max_profit([2,1,4,1])
