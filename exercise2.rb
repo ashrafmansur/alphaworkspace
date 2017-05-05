@@ -1,13 +1,10 @@
 def contains_duplicates(arr)
-	dict = {}
-	for i in arr.length
-		if arr.key?(i)
-			return true
-		else
-			dict[i] = 1
-		end
+	
+	if arr.uniq.length != arr.length
+		return true
+	else 
+		return false
 	end
-	return false
 end
 
 puts contains_duplicates([0,1,1]) #true
